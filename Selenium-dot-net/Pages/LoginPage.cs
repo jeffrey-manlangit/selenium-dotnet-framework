@@ -22,19 +22,21 @@ public class LoginPage : BasePage
         Driver.Navigate().GoToUrl(ConfigurationHelper.BaseUrl);
     }
 
-    public void EnterUsername(string username)
+    private void EnterUsername(string username)
     {
-        Driver.FindElement(UsernameTextbox).SendKeys(username);
+        //Driver.FindElement(UsernameTextbox).SendKeys(username);
+        Type(UsernameTextbox, username);
     }
 
-    public void EnterPassword(string password)
+    private void EnterPassword(string password)
     {
-        Driver.FindElement(PasswordTextbox).SendKeys(password);
+        // Driver.FindElement(PasswordTextbox).SendKeys(password);
+        Type(PasswordTextbox, password);
     }
 
-    public void ClickLogin()
+    private void ClickLogin()
     {
-        Driver.FindElement(LoginButton).Click();
+        Click(LoginButton);
     }
 
     public void Login(string username, string password)
