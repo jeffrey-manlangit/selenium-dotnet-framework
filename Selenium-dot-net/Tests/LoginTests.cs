@@ -1,10 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FluentAssertions;
+using SeleniumDotNetFramework.Utilities;
 
-namespace Selenium_dot_net.Tests
+namespace SeleniumDotNetFramework.Tests;
+
+public class LoginTests : BaseTest
 {
-    internal class LoginTests
+    [Test]
+    public void VerifySauceDemoHomePageTitle()
     {
+        //Driver.Navigate().GoToUrl("https://www.saucedemo.com");
+        Driver.Navigate().GoToUrl(ConfigurationHelper.BaseUrl);
+        Driver.Title.Should().Be("Swag Labs");
     }
 }

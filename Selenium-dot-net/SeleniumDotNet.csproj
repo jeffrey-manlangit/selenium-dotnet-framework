@@ -10,6 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Configurations\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.4" />
     <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
     <PackageReference Include="ExtentReports" Version="5.0.4" />
@@ -31,8 +41,6 @@
 
   <ItemGroup>
     <Folder Include="Configurations\" />
-    <Folder Include="Drivers\" />
-    <Folder Include="Utilities\" />
     <Folder Include="TestData\" />
     <Folder Include="Screenshots\" />
     <Folder Include="Reports\" />
