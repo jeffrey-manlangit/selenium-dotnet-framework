@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using SeleniumDotNetFramework.Utilities;
+using SeleniumDotNetFramework.Pages;
 
 namespace SeleniumDotNetFramework.Tests;
 
@@ -8,8 +8,11 @@ public class LoginTests : BaseTest
     [Test]
     public void VerifySauceDemoHomePageTitle()
     {
-        //Driver.Navigate().GoToUrl("https://www.saucedemo.com");
-        Driver.Navigate().GoToUrl(ConfigurationHelper.BaseUrl);
-        Driver.Title.Should().Be("Swag Labs");
+        var loginPage = new LoginPage(Driver);
+
+        loginPage.Open();
+        loginPage.Login("standard_user", "secret_sauce");
+
+        Driver.Url.Should().Be("https://www.saucedemo.com/inventory.html");
     }
 }
